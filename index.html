@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeu Concours Été 2026 — Verrier Solutions</title>
+<meta name="description" content="Participez au jeu concours Verrier Solutions de l'été 2026. À gagner : Air Fryer, Enceinte Bluetooth, Coffrets gourmands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #EE84B5;
+    --violet: #6666CC;
+    --cyan: #38B6E5;
+    --gris-fonce: #3B3D50;
+    --gris: #6B6B7A;
+    --gris-clair: #EEEEF2;
+    --creme: #FAFAFC;
+    --blanc: #FFFFFF;
+
+    --gradient-brand: linear-gradient(90deg, var(--rose) 0%, var(--violet) 50%, var(--cyan) 100%);
+    --gradient-soft: linear-gradient(135deg, #FCE9F1 0%, #E8E7F8 50%, #DDF1FA 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--creme);
+    color: var(--gris-fonce);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* === GRADIENT TEXT UTILITY === */
+  .gradient-text {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* === HEADER === */
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 250, 252, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(59, 61, 80, 0.06);
+  }
+  .header-logo img {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+  .header-meta {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gris);
+    font-weight: 600;
+  }
+  .header-meta .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--gradient-brand);
+    border-radius: 50%;
+    margin: 0 10px;
+    vertical-align: middle;
+  }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 48px 80px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    background:
+      radial-gradient(ellipse 80% 60% at 80% 30%, rgba(56, 182, 229, 0.15), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 20% 70%, rgba(238, 132, 181, 0.18), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 60% 90%, rgba(102, 102, 204, 0.12), transparent 60%),
+      var(--creme);
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--gris-fonce);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--gradient-brand);
+    border-radius: 50%;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    color: var(--gris-fonce);
+  }
+  .hero h1 .accent {
+    font-style: italic;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding: 0 0.08em 0 0.12em;
+    margin-left: -0.05em;
+  }
+  .hero h1 .line { display: block; }
+
+  .hero-lead {
+    font-size: 20px;
+    color: var(--gris);
+    max-width: 480px;
+    margin-bottom: 48px;
+    line-height: 1.55;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--gris-fonce);
+    color: white;
+    padding: 22px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    transition: all 0.35s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-brand);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: -1;
+  }
+  .hero-cta:hover::before { opacity: 1; }
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 50px rgba(102, 102, 204, 0.35);
+  }
+  .hero-cta-arrow {
+    width: 32px; height: 32px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gris-fonce);
+    transition: transform 0.3s ease;
+    font-weight: 700;
+  }
+  .hero-cta:hover .hero-cta-arrow {
+    transform: translateX(4px) rotate(-45deg);
+  }
+
+  /* Hero visuel - lots */
+  .hero-visual {
+    position: relative;
+    height: 600px;
+  }
+  .lot-card {
+    position: absolute;
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 24px 60px rgba(59, 61, 80, 0.14);
+    width: 240px;
+    transition: transform 0.4s ease;
+    border: 1px solid rgba(59,61,80,0.05);
+  }
+  .lot-card:hover { transform: translateY(-8px) rotate(0deg) !important; }
+
+  .lot-card.lot-1 {
+    top: 20px; left: 20px;
+    transform: rotate(-6deg);
+    border-top: 4px solid var(--rose);
+  }
+  .lot-card.lot-2 {
+    top: 180px; right: 30px;
+    transform: rotate(5deg);
+    background: var(--gris-fonce);
+    color: white;
+    border: none;
+  }
+  .lot-card.lot-3 {
+    bottom: 40px; left: 80px;
+    transform: rotate(-3deg);
+    border-top: 4px solid var(--cyan);
+  }
+
+  .lot-icon {
+    font-size: 56px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .lot-rank {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .lot-name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .lot-card.lot-2 .lot-rank {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+  }
+
+  /* === MÉCANIQUE === */
+  .mecanique {
+    padding: 120px 48px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 16px;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 64px;
+    max-width: 700px;
+    color: var(--gris-fonce);
+  }
+  .section-title em {
+    font-style: italic;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .step {
+    padding: 40px;
+    border: 1px solid rgba(59,61,80,0.08);
+    border-radius: 24px;
+    background: white;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .step::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1.5px;
+    background: var(--gradient-brand);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(59,61,80,0.08);
+  }
+  .step:hover::after { opacity: 1; }
+
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 24px;
+    letter-spacing: -0.04em;
+  }
+  .step-title {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+    color: var(--gris-fonce);
+  }
+  .step-text {
+    color: var(--gris);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* === FORM SECTION === */
+  .form-section {
+    background: var(--gris-fonce);
+    color: white;
+    padding: 120px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .form-section::before {
+    content: 'PARTICIPEZ';
+    position: absolute;
+    bottom: -30px;
+    left: -20px;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(120px, 22vw, 320px);
+    font-weight: 900;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.08;
+    letter-spacing: -0.05em;
+    line-height: 0.8;
+    pointer-events: none;
+  }
+  .form-section::after {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: var(--gradient-brand);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .form-section .section-title {
+    color: white;
+    margin-bottom: 48px;
+  }
+  .form-iframe-wrap {
+    background: white;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+    position: relative;
+  }
+  .form-iframe-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 32px;
+    padding: 2px;
+    background: var(--gradient-brand);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+  }
+  iframe {
+    width: 100%;
+    height: 1500px;
+    border: 0;
+    display: block;
+  }
+
+  .form-fallback {
+    text-align: center;
+    margin-top: 32px;
+  }
+  .form-fallback a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* === FOOTER === */
+  footer {
+    padding: 60px 48px 40px;
+    background: var(--creme);
+    border-top: 1px solid rgba(59,61,80,0.08);
+  }
+  .footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .footer-rgpd {
+    font-size: 12px;
+    color: var(--gris);
+    max-width: 600px;
+    line-height: 1.65;
+  }
+  .footer-logo img {
+    height: 38px;
+    width: auto;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .footer-tagline {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  /* Top gradient bar */
+  .top-bar {
+    height: 4px;
+    background: var(--gradient-brand);
+    width: 100%;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 968px) {
+    .header { padding: 14px 20px; }
+    .header-logo img { height: 36px; }
+    .header-meta { display: none; }
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 100px 20px 60px;
+      gap: 60px;
+    }
+    .hero-visual { height: 480px; }
+    .lot-card { width: 200px; padding: 24px; }
+    .mecanique { padding: 80px 20px; }
+    .steps { grid-template-columns: 1fr; gap: 16px; }
+    .form-section { padding: 80px 20px; }
+    iframe { height: 1700px; }
+    footer { padding: 40px 20px; }
+    .footer-content { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<header class="header">
+  <div class="header-logo">
+    <img src="logo-verrier-hires.png" alt="Verrier Solutions">
+  </div>
+  <div class="header-meta">
+    Été 2026 <span class="dot"></span> Jeu Concours
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Tirage au sort été 2026</div>
+    <h1>
+      <span class="line">Gagnez,</span>
+      <span class="line"><span class="accent">tout</span> simplement.</span>
+    </h1>
+    <p class="hero-lead">
+      Renseignez votre contrat copieur en moins de 60 secondes et participez à notre grande tombola estivale. Trois lots à remporter.
+    </p>
+    <a href="#participer" class="hero-cta">
+      Je participe maintenant
+      <span class="hero-cta-arrow">→</span>
+    </a>
+  </div>
+
+  <div class="hero-visual">
+    <div class="lot-card lot-1">
+      <span class="lot-icon">🧑‍🍳</span>
+      <div class="lot-rank">Lot 01</div>
+      <div class="lot-name">Air Fryer<br>nouvelle génération</div>
+    </div>
+    <div class="lot-card lot-2">
+      <span class="lot-icon">🔊</span>
+      <div class="lot-rank">Lot 02</div>
+      <div class="lot-name">Enceinte<br>Bluetooth premium</div>
+    </div>
+    <div class="lot-card lot-3">
+      <span class="lot-icon">🎁</span>
+      <div class="lot-rank">Lot 03</div>
+      <div class="lot-name">Coffrets<br>gourmands</div>
+    </div>
+  </div>
+</section>
+
+<section class="mecanique">
+  <div class="section-eyebrow">Comment ça marche</div>
+  <h2 class="section-title">Trois étapes, <em>une chance</em> de gagner.</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3 class="step-title">Remplissez</h3>
+      <p class="step-text">Quelques infos sur votre contrat copieur actuel : modèle, dates, contact. Ça prend moins d'une minute.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Validez</h3>
+      <p class="step-text">Acceptez d'être recontacté(e) par nos équipes commerciales. C'est tout — votre participation est enregistrée.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3 class="step-title">Croisez les doigts</h3>
+      <p class="step-text">Le tirage au sort a lieu à la fin de l'été 2026. Les heureux gagnants seront contactés directement par Verrier Solutions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="participer">
+  <div class="form-container">
+    <div class="section-eyebrow">Formulaire de participation</div>
+    <h2 class="section-title">À vous de <em>jouer.</em></h2>
+
+    <div class="form-iframe-wrap">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdDcmJnJSPhcYE7Ek_jla7j-FTiUJ1RfUp2awbZ0kg5yM1m-w/viewform?embedded=true"
+        loading="lazy">
+        Chargement…
+      </iframe>
+    </div>
+
+    <div class="form-fallback">
+      <p style="opacity:0.7; font-size:14px;">Le formulaire ne s'affiche pas ?
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdDcmJnJSPhcYE7Ek_jla7j-FTiUJ1RfUp2awbZ0kg5yM1m-w/viewform" target="_blank">
+          Ouvrir dans un nouvel onglet ↗
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-rgpd">
+      Les données collectées sont utilisées par Verrier Solutions dans le cadre de la prospection commerciale et du jeu concours. Conformément au RGPD, vous pouvez à tout moment demander la modification ou la suppression de vos données en nous écrivant à contact@verrier-solutions.fr.
+    </div>
+    <div class="footer-logo">
+      <img src="logo-verrier-hires.png" alt="Verrier Solutions">
+      <div class="footer-tagline">Imprimeur · Copieur · Numériseur</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
