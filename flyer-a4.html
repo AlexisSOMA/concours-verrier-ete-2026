@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Flyer Jeu Concours Été 2026 — Verrier Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --rose: #EE84B5;
+    --violet: #6666CC;
+    --cyan: #38B6E5;
+    --gris-fonce: #2D2F40;
+    --gris: #6B6B7A;
+    --gris-clair: #E5E5EB;
+    --jaune: #FFD84D;
+    --creme: #FFF9E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body {
+    font-family: 'Inter', sans-serif;
+    color: var(--gris-fonce);
+    background: white;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .display { font-family: 'Archivo Black', sans-serif; font-weight: 400; }
+
+  /* ========= TOP BANNER ========= */
+  .top-banner {
+    background: var(--gris-fonce);
+    color: white;
+    padding: 4mm 14mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .top-banner .stars { color: var(--jaune); letter-spacing: 0.05em; }
+
+  /* ========= HEADER ========= */
+  .header {
+    padding: 5mm 14mm 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header img { height: 14mm; width: auto; }
+  .header-tag {
+    background: var(--jaune);
+    color: var(--gris-fonce);
+    padding: 2mm 4mm;
+    border-radius: 1.5mm;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ========= HERO ========= */
+  .hero {
+    padding: 4mm 14mm 4mm;
+    text-align: center;
+  }
+  .hero h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 38pt;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: var(--gris-fonce);
+    text-transform: uppercase;
+  }
+  .hero h1 .star {
+    color: var(--jaune);
+    -webkit-text-stroke: 0.6pt var(--gris-fonce);
+    font-size: 0.7em;
+    vertical-align: 0.15em;
+    margin: 0 0.05em;
+  }
+  .hero-sub {
+    font-size: 10pt;
+    color: var(--gris);
+    margin-top: 3mm;
+    font-weight: 500;
+  }
+  .hero-sub strong {
+    color: var(--gris-fonce);
+    font-weight: 800;
+  }
+
+  /* ========= LOTS ========= */
+  .lots {
+    padding: 0 14mm;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin-bottom: 6mm;
+  }
+  .lot {
+    border-radius: 4mm;
+    padding: 4mm 3mm 4mm;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  .lot-1 { background: var(--rose); }
+  .lot-2 { background: var(--violet); }
+  .lot-3 { background: var(--cyan); }
+
+  .lot-rank {
+    background: white;
+    color: var(--gris-fonce);
+    display: inline-block;
+    padding: 1mm 3mm;
+    border-radius: 10mm;
+    font-size: 7pt;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  .lot-icon {
+    font-size: 22pt;
+    line-height: 1;
+    margin: 2mm 0;
+    display: block;
+  }
+  .lot-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 11pt;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  /* ========= HOW TO PARTICIPATE ========= */
+  .participate-header {
+    text-align: center;
+    margin-bottom: 3mm;
+    padding: 0 14mm;
+  }
+  .participate-header h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13pt;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--gris-fonce);
+    display: inline-block;
+    padding: 0 5mm;
+    background: white;
+    position: relative;
+    z-index: 1;
+  }
+  .participate-header .divider {
+    height: 1pt;
+    background: var(--gris-fonce);
+    margin-top: -2.8mm;
+    position: relative;
+    z-index: 0;
+  }
+
+  .options {
+    padding: 0 14mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-bottom: 4mm;
+    align-items: stretch;
+  }
+  .option {
+    border: 1.2pt solid var(--gris-fonce);
+    border-radius: 3mm;
+    padding: 4mm;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .option-num {
+    display: inline-block;
+    width: 6.5mm; height: 6.5mm;
+    background: var(--gris-fonce);
+    color: white;
+    border-radius: 50%;
+    line-height: 6.5mm;
+    font-size: 10pt;
+    font-weight: 900;
+    margin-bottom: 2mm;
+  }
+  .option h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 10.5pt;
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+    letter-spacing: 0.02em;
+  }
+  .option-body {
+    font-size: 8.5pt;
+    color: var(--gris);
+    line-height: 1.4;
+  }
+  .option-qr {
+    width: 22mm; height: 22mm;
+    margin: 2mm auto 0;
+    display: block;
+  }
+  .option-arrow {
+    font-size: 14pt;
+    color: var(--violet);
+    margin: 1mm 0;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  /* ========= FORM ========= */
+  .form-section {
+    background: var(--creme);
+    padding: 5mm 14mm;
+    flex: 1;
+  }
+  .form-section h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 3mm;
+    color: var(--gris-fonce);
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+  }
+  .form-section h2::before {
+    content: '✎';
+    background: var(--gris-fonce);
+    color: white;
+    width: 6.5mm; height: 6.5mm;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10pt;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm 6mm;
+    margin-bottom: 3mm;
+  }
+  .field { display: flex; flex-direction: column; gap: 0.8mm; }
+  .field.full { grid-column: 1 / -1; }
+  .field label {
+    font-size: 7pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gris-fonce);
+  }
+  .field-box {
+    background: white;
+    border: 0.8pt solid var(--gris-fonce);
+    border-radius: 1.5mm;
+    height: 7mm;
+  }
+
+  .consent {
+    background: white;
+    border: 0.8pt solid var(--gris-fonce);
+    border-radius: 2mm;
+    padding: 2.5mm;
+    display: flex;
+    gap: 2.5mm;
+    align-items: flex-start;
+  }
+  .checkbox-square {
+    width: 4.5mm;
+    height: 4.5mm;
+    border: 1pt solid var(--gris-fonce);
+    border-radius: 0.8mm;
+    flex-shrink: 0;
+    margin-top: 0.5mm;
+  }
+  .consent-text {
+    font-size: 7.5pt;
+    line-height: 1.35;
+  }
+  .consent-text strong { font-weight: 800; }
+
+  /* ========= FOOTER ========= */
+  .footer-band {
+    background: var(--gris-fonce);
+    color: white;
+    padding: 4mm 14mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6mm;
+  }
+  .footer-left {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+  .footer-left small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.7;
+    margin-top: 1mm;
+  }
+  .footer-rgpd {
+    font-size: 6.5pt;
+    opacity: 0.6;
+    line-height: 1.45;
+    max-width: 90mm;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <span><span class="stars">★★★</span> &nbsp;Jeu concours · Été 2026&nbsp; <span class="stars">★★★</span></span>
+    <span>Tirage : fin août 2026</span>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="logo-verrier-hires.png" alt="Verrier Solutions">
+    <div class="header-tag">Gratuit · Sans obligation d'achat</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Gagnez <span class="star">★</span> un cadeau<br>cet été !</h1>
+    <p class="hero-sub">
+      Remplissez ce formulaire et <strong>tentez de remporter</strong> l'un des 3 lots ci-dessous.
+    </p>
+  </div>
+
+  <!-- LOTS -->
+  <div class="lots">
+    <div class="lot lot-1">
+      <div class="lot-rank">1<sup>er</sup> prix</div>
+      <span class="lot-icon">🧑‍🍳</span>
+      <div class="lot-name">Air Fryer<br>premium</div>
+    </div>
+    <div class="lot lot-2">
+      <div class="lot-rank">2<sup>e</sup> prix</div>
+      <span class="lot-icon">🔊</span>
+      <div class="lot-name">Enceinte<br>Bluetooth</div>
+    </div>
+    <div class="lot lot-3">
+      <div class="lot-rank">3<sup>e</sup> prix</div>
+      <span class="lot-icon">🎁</span>
+      <div class="lot-name">Coffret<br>gourmand</div>
+    </div>
+  </div>
+
+  <!-- HOW TO PARTICIPATE -->
+  <div class="participate-header">
+    <div class="divider"></div>
+    <h2>Deux façons de participer</h2>
+  </div>
+
+  <div class="options">
+    <div class="option">
+      <div class="option-num">1</div>
+      <h3>Sur papier</h3>
+      <div class="option-body">
+        Remplissez le formulaire ci-dessous<br>et remettez-le à votre commercial Verrier.
+      </div>
+      <div class="option-arrow">↓</div>
+    </div>
+    <div class="option">
+      <div class="option-num">2</div>
+      <h3>En ligne · 60 sec.</h3>
+      <div class="option-body">
+        Scannez ce QR code avec votre téléphone et remplissez le formulaire en ligne.
+      </div>
+      <img src="qr-concours.png" class="option-qr" alt="QR Code">
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-section">
+    <h2>Formulaire papier</h2>
+    <div class="form-grid">
+      <div class="field full">
+        <label>Nom de l'interlocuteur</label>
+        <div class="field-box"></div>
+      </div>
+      <div class="field full">
+        <label>Société</label>
+        <div class="field-box"></div>
+      </div>
+      <div class="field full">
+        <label>Modèle du copieur en parc</label>
+        <div class="field-box"></div>
+      </div>
+      <div class="field">
+        <label>Début du contrat</label>
+        <div class="field-box"></div>
+      </div>
+      <div class="field">
+        <label>Date de fin du contrat</label>
+        <div class="field-box"></div>
+      </div>
+      <div class="field">
+        <label>Téléphone</label>
+        <div class="field-box"></div>
+      </div>
+      <div class="field">
+        <label>Email professionnel</label>
+        <div class="field-box"></div>
+      </div>
+    </div>
+
+    <div class="consent">
+      <div class="checkbox-square"></div>
+      <div class="consent-text">
+        <strong>Je participe à la tombola.</strong> J'accepte d'être recontacté(e) par Verrier Solutions dans le cadre de la prospection commerciale.
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-band">
+    <div class="footer-left">
+      Verrier Solutions
+      <small>Imprimeur · Copieur · Numériseur</small>
+    </div>
+    <div class="footer-rgpd">
+      Données utilisées par Verrier Solutions pour la prospection commerciale et le concours. RGPD : modification/suppression à contact@verrier-solutions.fr. Tirage fin été 2026, gagnants contactés directement.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
